@@ -7,18 +7,27 @@ class HomeView extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: Container(
-          color: Colors.red,
           child: CarouselSlider(
-            options: CarouselOptions(),
+            options: CarouselOptions(
+              aspectRatio: 2 / 1,
+              autoPlay: true,
+              enlargeCenterPage: true,
+              autoPlayCurve: Curves.easeIn,
+              autoPlayAnimationDuration: Duration(milliseconds: 500),
+              autoPlayInterval: Duration(seconds: 3),
+            ),
             items: [
-              Text('Slider 1'),
-              Text('Slider 2'),
+              Center(child: Text('Slider 1')),
+              Center(child: Text('Slider 2')),
               Container(
-                  alignment: Alignment.center, child: Text('Slider Contailer')),
+                  color: Colors.red,
+                  alignment: Alignment.center,
+                  child: Text('Slider Contailer')),
               Row(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [Text('Slider 1'), Icon(Icons.place)],
               ),
-              Text('Slider Son'),
+              Center(child: Text('Slider Son')),
             ],
           ),
         ),
